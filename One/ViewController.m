@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HLLRequestManager.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [[HLLRequestManager shareRequestManager] requestManager_requestMusicDetailWithMusicId:@"31" result:^(id data, NSError *error) {
+        NSLog(@"%@",data);
+        NSLog(@"error:%@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
